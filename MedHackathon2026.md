@@ -85,7 +85,7 @@ Tier 2 and Tier 3 should be discussed here.
 
 Whether each country has a submission destination like JGA for Tier 1 data should also be discussed.
 
-### India ()
+### India (Shailesh Kumar)
 
 Project name: IBDC (Indian Biological Data Centre)
 
@@ -93,14 +93,14 @@ Project name: IBDC (Indian Biological Data Centre)
   - Data held: normal & cancer human data (genomics & multi-omics)
     - Building an Indian version of GTEx
 
-### Philippines ()
+### Philippines (Francis Tablizo)
 
-Project name: ?
+Project name: Filipinome (Philippine Genome Center)
 
 - Tier 3: D — Currently only one project exists, and PI approval is required
-  - Data held: transcriptome
+  - Data held: genomic data, clinical information
 
-### Thailand (Jakris)
+### Thailand (Jakris Eu-ahsunthornwattana)
 
 Project name: ??
 
@@ -108,7 +108,7 @@ Project name: ??
   - Data held: Genomic Thailand
   - International access applications: Yes
 
-### Japan (Toshiaki, Soichi, Yosuke)
+### Japan (Toshiaki Katayama, Soichi Ogishima, Yosuke Kawai)
 
 Project name: JGA
 - Tier 2: DAC
@@ -127,7 +127,7 @@ Project name: AMED
   - Data held: disease research data
   - International access applications: Case by case
 
-### Singapore (Nicolas)
+### Singapore (Nicolas Bertin)
 
 Project name: PRECISE
 
@@ -137,3 +137,67 @@ Project name: PRECISE
     - Ministry of Health (MOH) DAC: Selected EHR
 	- TRUST DAC: environmental data, traffic data, and more
   - International access applications:
+
+## Day 2
+
+The INSDC centers (NCBI, EMBL-EBI, NIG-DDBJ) operate dbGaP, EGA, and JGA to support researchers in depositing human research data and obtaining IDs for publication, and in making research data accessible long-term (open/controlled).
+
+In contrast, national genome projects and biobanks are themselves data producers, hold their own DACs, and retain large-scale data. Treating an entire large-scale dataset as a single dataset makes search inconvenient, so it is desirable to be able to search by breakdowns. One idea proposed yesterday was: for each data-use application (study) to a DAC, the research purpose and corresponding data become clear, so registering each of those as a separate dataset could be a way forward.
+
+Through various discussions, today's question became: "Where do researchers in Asian countries actually deposit human research data?" → For India, it became clear that IBDC operates INDA-CA.
+
+## Wrap-up slides
+
+### Slide 1
+
+Vision for AGA: a catalog that promotes mutual use of human research data across Asia
+
+* INSDC human research data
+  * Open access data
+    * SRA (US/NCBI), ENA (EU/EMBL-EBI), DRA (Japan/NIG-DDBJ)
+  * Controlled access data
+    * dbGaP (US/NCBI), EGA (EU/EMBL-EBI), JGA (Japan/NIG-DDBJ)
+  * Upcoming members + CNCB (China), IBDC (India/INDA-CA)
+
+* Biobank human research data
+  * Japan: ToMMo, GeMJ, AMED, ...
+  * India: GenomeIndia
+  * Singapore: PRECISE
+  * Thailand: Genomics Thailand
+  * Philippines: Filipinome
+  * Others: see [MedHackathon 2025 paper](https://doi.org/10.1093/gigascience/giag052) Table 1)
+
+
+### Slide 2
+
+To design the AGA portal, consider use cases and potential improvements using EGA and others as examples
+
+Typical process for researchers applying for data use
+* Find data useful for their research from catalogs such as [Federated EGA](https://ega-archive.org/datasets/)
+  * Access the DAC for that data and submit a use application
+    * Data access environments vary by provider (TRE, download, etc.)
+
+Challenges
+* Catalogs are not particularly human- or AI-friendly
+  * Insufficient functionality for breakdowns/distributions of many datasets, faceted search, etc.
+    * What metadata should be in the catalog, and what features should the portal provide?
+  * With many DACs, applying for multiple datasets becomes cumbersome
+    * When a PI also serves as the DAC, contact can be difficult, and future access may become unavailable
+
+The primary function of AGA is to provide an overview of what data exists in each country and in what quantities, enable humans and AI to efficiently find needed data, clarify where to apply for access, and ensure long-term data accessibility.
+
+### Slide 3
+
+Next steps
+
+* Step 1
+  * Investigate how many institutions across Asian countries, besides JGA, accept controlled-access research data deposits
+    * In India, IBDC operates INDA (equivalent to SRA) and INDA-CA (equivalent to dbGaP); the DAC for the latter is run by IBDC
+  * Define a specification for JGA and these organizations to provide research dataset indexes to the AGA portal
+    * An API to retrieve the latest list, and a JSON structure containing necessary and sufficient metadata
+  * Prototype the AGA portal site, aggregate data from each country via the API, and enable search through tables and visualizations
+* Step 2
+  * Reconsider how to index datasets from national genome projects and biobanks in AGA, and what metadata is needed for that
+    * For example, for ToMMo data in Japan, several approaches are possible: ToMMo joins as an AGA member, or ToMMo data is registered in JGA and listed in the catalog
+
+To this end, we hope to advance collaboration through the September [BioHackathon](https://2026.biohackathon.org/), Zoom meetings, and next year's MedHackathon.
