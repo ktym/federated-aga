@@ -1,4 +1,4 @@
-# Table 1 Federated genome archive and data-sharing governance
+# Federated genome archive and data-sharing governance (Group 1)
 
 Federated Asian Genome-Phenotype Archive
 
